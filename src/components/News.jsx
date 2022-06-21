@@ -4,13 +4,12 @@ import moment from "moment";
 
 import { useGetCryptoNewsQuery } from "../services/cryptoNewsApi";
 import { useGetCryptosQuery } from "../services/cryptoApi";
+
 import Loader from "./Loader";
+import demoImage from "../images/demo.jpg";
 
 const { Text, Title } = Typography;
 const { Option } = Select;
-
-const demoImage =
-  "https://www.bing.com/th?id=OVFT.mpzuVZnv8dwIMRfQGPbOPC&pid=News";
 
 const News = ({ simplified }) => {
   const [newsCategory, setNewsCategory] = useState("Cryptocurrency");
@@ -38,8 +37,10 @@ const News = ({ simplified }) => {
             }
           >
             <Option value="Cryptocurrency">Cryptocurrency</Option>
-            {data?.data?.coins.map((coin) => (
-              <Option value={coin.name}>{coin.name}</Option>
+            {data?.data?.coins.map((coin, i) => (
+              <Option value={coin.name} key={i}>
+                {coin.name}
+              </Option>
             ))}
           </Select>
         </Col>
