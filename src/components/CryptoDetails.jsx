@@ -32,6 +32,7 @@ const CryptoDetails = () => {
     coinId,
     timePeriod,
   });
+
   const cryptoDetails = data?.data?.coin;
 
   if (isFetching) return "Loading...";
