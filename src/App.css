@@ -368,6 +368,23 @@ a:hover {
   margin-top: 20px !important;
 }
 
+.exchanges-card-container {
+  min-height: 80vh !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column !important;
+}
+
+.exchanges-image {
+  height: 60%;
+  width: 60%;
+}
+
+.exchanges-heading {
+  text-transform: uppercase;
+}
+
 .footer {
   background-color: #001529;
   display: flex;
