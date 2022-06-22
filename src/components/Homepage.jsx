@@ -7,16 +7,20 @@ import { useGetCryptosQuery } from "../services/cryptoApi";
 import { Cryptocurrencies, News } from "../components";
 import Loader from "./Loader";
 
+// Typography
 const { Title } = Typography;
 
+// Home Page
 const Homepage = () => {
   const { data, isFetching } = useGetCryptosQuery(10);
   const globalStats = data?.data?.stats;
 
+  // Loading
   if (isFetching) return <Loader />;
 
   return (
     <>
+      {/* Global Crypto Stats */}
       <Title level={2} className="heading">
         Global Crypto Stats
       </Title>
@@ -49,6 +53,7 @@ const Homepage = () => {
           />
         </Col>
       </Row>
+      {/* Top 10 Cryptocurrencies */}
       <div className="home-heading-container">
         <Title level={2} className="home-title">
           Top 10 Cryptocurrencies in the world.
@@ -59,6 +64,7 @@ const Homepage = () => {
       </div>
       <Cryptocurrencies simplified />
 
+      {/* Crypto News */}
       <div className="home-heading-container">
         <Title level={2} className="home-title">
           Latest Crypto News

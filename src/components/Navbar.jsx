@@ -15,6 +15,7 @@ const Navbar = () => {
   const [activeMenu, setActiveMenu] = useState(true);
   const [screenSize, setScreenSize] = useState(null);
 
+  // Get screen size
   useEffect(() => {
     const handleResize = () => setScreenSize(window.innerWidth);
 
@@ -25,11 +26,13 @@ const Navbar = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  // Change menu style based on screen size
   useEffect(() => {
     if (screenSize < 768) setActiveMenu(false);
     else setActiveMenu(true);
   }, [screenSize]);
 
+  // Menu Items
   const MenuItems = [
     {
       key: "home",
@@ -55,11 +58,13 @@ const Navbar = () => {
 
   return (
     <div className="nav-container">
+      {/* Logo */}
       <div className="logo-container">
         <Avatar src={icon} size="large" />
         <Typography.Title level={2} className="logo">
           <Link to="/">Cryptoverse</Link>
         </Typography.Title>
+        {/* Menu Button */}
         <Button
           className="menu-control-container"
           onClick={() => setActiveMenu(!activeMenu)}
@@ -67,6 +72,7 @@ const Navbar = () => {
           <MenuOutlined />
         </Button>
       </div>
+      {/* Menu Items */}
       {activeMenu && <Menu theme="dark" items={MenuItems}></Menu>}
     </div>
   );

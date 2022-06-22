@@ -3,6 +3,7 @@ import { Row, Typography } from "antd";
 
 import BgImage from "../images/coming-soon.png";
 
+// Exchanges (Commin Soon)
 const Exchanges = () => {
   return (
     <Row gutter={[32, 32]} className="exchanges-card-container">

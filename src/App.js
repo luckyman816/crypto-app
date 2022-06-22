@@ -2,6 +2,7 @@ import React from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import { Layout, Typography, Space } from "antd";
 
+// Components
 import {
   Navbar,
   Homepage,
@@ -10,15 +11,21 @@ import {
   CryptoDetails,
   News,
 } from "./components";
+
+// CSS Styles
 import "./App.css";
 
 const App = () => {
   return (
     <div className="app">
+      {/* Navbar */}
       <div className="navbar">
         <Navbar />
       </div>
+
+      {/* Main */}
       <div className="main">
+        {/* Body */}
         <Layout>
           <div className="routes">
             <Routes>
@@ -30,6 +37,8 @@ const App = () => {
             </Routes>
           </div>
         </Layout>
+
+        {/* Footer */}
         <div className="footer">
           <Typography.Title
             level={5}

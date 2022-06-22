@@ -1,18 +1,23 @@
 import React from "react";
+// Chart is required by chart.js, don't remove even if not used.
 import Chart from "chart.js/auto";
 import { Line } from "react-chartjs-2";
 import { Col, Row, Typography } from "antd";
 
+// Typography
 const { Title } = Typography;
 
+// Line Chart
 const LineChart = ({ coinHistory, currentPrice, coinName }) => {
   const coinPrice = [];
   const coinTimestamp = [];
 
+  // Coin Price
   for (let i = 0; i < coinHistory?.data?.history?.length; i += 1) {
     coinPrice.push(coinHistory?.data?.history[i].price);
   }
 
+  // Coin Timestamp
   for (let i = 0; i < coinHistory?.data?.history?.length; i += 1) {
     coinTimestamp.push(
       new Date(
@@ -21,6 +26,7 @@ const LineChart = ({ coinHistory, currentPrice, coinName }) => {
     );
   }
 
+  // Data
   const data = {
     labels: coinTimestamp,
     datasets: [
@@ -34,6 +40,7 @@ const LineChart = ({ coinHistory, currentPrice, coinName }) => {
     ],
   };
 
+  // Options
   const options = {
     scales: {
       yAxes: [
@@ -48,6 +55,7 @@ const LineChart = ({ coinHistory, currentPrice, coinName }) => {
 
   return (
     <>
+      {/* Coin Info */}
       <Row className="chart-header">
         <Title level={2} className="chart-title">
           {coinName} Price Chart{" "}
@@ -61,6 +69,7 @@ const LineChart = ({ coinHistory, currentPrice, coinName }) => {
           </Title>
         </Col>
       </Row>
+      {/* Chart */}
       <Line data={data} options={options} />
     </>
   );

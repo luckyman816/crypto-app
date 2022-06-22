@@ -6,12 +6,14 @@ import { Card, Row, Col, Input } from "antd";
 import { useGetCryptosQuery } from "../services/cryptoApi";
 import Loader from "./Loader";
 
+// Cryptocurrencies
 const Cryptocurrencies = ({ simplified }) => {
   const count = simplified ? 10 : 100;
   const { data: cryptosList, isFetching } = useGetCryptosQuery(count);
   const [cryptos, setCryptos] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
 
+  // Filter search data
   useEffect(() => {
     const re = RegExp(
       `.*${searchTerm.toLowerCase().replace(/\s+/g, "").split("").join(".*")}.*`
@@ -24,10 +26,12 @@ const Cryptocurrencies = ({ simplified }) => {
     setCryptos(filteredData);
   }, [cryptosList, searchTerm]);
 
+  // Loading
   if (isFetching) return <Loader />;
 
   return (
     <>
+      {/* Search Crypocurrency */}
       {!simplified && (
         <div className="search-crypto">
           <Input
@@ -42,6 +46,7 @@ const Cryptocurrencies = ({ simplified }) => {
         className="crypto-card-container"
         style={!cryptos?.length && { justifyContent: "center" }}
       >
+        {/* Show Crypocurrency */}
         {cryptos?.length ? (
           cryptos?.map((currency) => (
             <Col
@@ -67,6 +72,7 @@ const Cryptocurrencies = ({ simplified }) => {
             </Col>
           ))
         ) : (
+          // No Crypocurrencies found
           <p style={{ textAlign: "center" }}>No Crytocurrencies Found.</p>
         )}
       </Row>
