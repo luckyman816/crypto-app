@@ -1,5 +1,6 @@
 import React from "react";
 // Chart is required by chart.js, don't remove even if not used.
+// eslint-disable-next-line
 import Chart from "chart.js/auto";
 import { Line } from "react-chartjs-2";
 import { Col, Row, Typography } from "antd";
