@@ -9,6 +9,7 @@ import store from "./app/store";
 // Antdesign CSS
 import "antd/dist/antd.css";
 
+// Render App
 createRoot(document.getElementById("root")).render(
   <Router>
     <Provider store={store}>
