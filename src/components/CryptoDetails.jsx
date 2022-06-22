@@ -111,7 +111,7 @@ const CryptoDetails = () => {
       <Col className="coin-heading-container">
         {/* Coin Name */}
         <Title level={2} className="coin-name">
-          {cryptoDetails.name} ({cryptoDetails.slug}) Price
+          {cryptoDetails.name} ({cryptoDetails.symbol}) Price
         </Title>
         {/* Coin Details */}
         <p>
